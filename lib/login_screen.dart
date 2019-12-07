@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/color.dart';
+import 'package:kosset_closet/constants/elements.dart';
+import 'package:kosset_closet/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -18,6 +20,45 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               height: MediaQuery.of(context).size.height * 0.3,
               decoration: BoxDecoration(color: pinkColor),
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "KOSSET™",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              color: Colors.white,
+                              fontSize: 34),
+                        ),
+                        Text(
+                          "Closet",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              color: pinkColorShadow,
+                              fontSize: 34),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Some relevent Tag-Line",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 16),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.7,
@@ -49,19 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         data: Theme.of(context).copyWith(
                           primaryColor: pinkColor,
                         ),
-                        child: TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1, style: BorderStyle.solid)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(width: 1, color: pinkColor)),
-                              hintText: "E-mail",
-                              prefixIcon: Icon(Icons.email)),
-                        ),
+                        child: textfield("E-mail", Icon(Icons.email))
                       ),
                     ),
                     Padding(
@@ -70,20 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         data: Theme.of(context).copyWith(
                           primaryColor: pinkColor,
                         ),
-                        child: TextField(
-                          obscureText: true,
-                          keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1, style: BorderStyle.solid)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(width: 1, color: pinkColor)),
-                              hintText: "Password",
-                              prefixIcon: Icon(Icons.vpn_key)),
-                        ),
+                        child: textfield("Password", Icon(Icons.vpn_key), obt: true)
                       ),
                     ),
                     Container(
@@ -99,26 +115,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.only(top: 60),
                       child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
                             color: pinkColor,
                             offset: Offset(0.0, 5),
-                            blurRadius:  10,
-                          ),]
-                        ),
+                            blurRadius: 10,
+                          ),
+                        ]),
                         width: MediaQuery.of(context).size.width * 0.7,
                         child: FloatingActionButton.extended(
-                          label: Text("LOGIN"),
+                          heroTag: "1",
+                          label: Text(
+                            "LOGIN",
+                            style: TextStyle(fontWeight: FontWeight.w800),
+                          ),
                           foregroundColor: Colors.white,
                           backgroundColor: Color.fromRGBO(229, 116, 133, 1),
                           elevation: 0.0,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                          onPressed: (){
-                            
-                          },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          onPressed: () {},
                         ),
                       ),
                     ),
@@ -126,40 +144,59 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 30),
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: Colors.deepPurpleAccent),
-                          borderRadius: BorderRadius.circular(5)
-                        ),
+                            border: Border.all(
+                                width: 1.5, color: purpleFromThePallet),
+                            borderRadius: BorderRadius.circular(5)),
                         width: MediaQuery.of(context).size.width * 0.7,
                         child: FloatingActionButton.extended(
-                          elevation: 2,
-                          label: Text("SIGN UP", style: TextStyle(color: Colors.deepPurple),),
+                          heroTag: "2",
+                          elevation: 0,
+                          label: Text(
+                            "SIGN UP",
+                            style: TextStyle(
+                                color: purpleFromThePallet,
+                                fontWeight: FontWeight.w800),
+                          ),
                           foregroundColor: Colors.black,
                           backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                          onPressed: (){
-                            
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()),
+                            );
                           },
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.only(top: 15),
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(5)
-                        ),
+                            border: Border.all(
+                                width: 0.5, color: purpleFromThePallet),
+                            borderRadius: BorderRadius.circular(5)),
                         width: MediaQuery.of(context).size.width * 0.7,
                         child: FloatingActionButton.extended(
-                          elevation: 2,
-                          icon: Image.network("https://img.icons8.com/bubbles/2x/google-logo.png", width: 30,),
-                          label: Text("SIGN IN WITH GOOGLE", style: TextStyle(color: Colors.grey),),
+                          heroTag: "3",
+                          elevation: 0,
+                          icon: Image.network(
+                            "https://img.icons8.com/bubbles/2x/google-logo.png",
+                            width: 30,
+                          ),
+                          label: Text(
+                            "SIGN IN WITH GOOGLE",
+                            style: TextStyle(
+                                color: purpleFromThePallet,
+                                fontWeight: FontWeight.w800),
+                          ),
                           foregroundColor: Colors.black,
                           backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                          onPressed: (){
-                            
-                          },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          onPressed: () {},
                         ),
                       ),
                     )

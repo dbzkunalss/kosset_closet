@@ -19,6 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -39,6 +40,23 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+      - family: Lato
+        fonts:
+        # - asset: fonts/Lato-Black.ttf
+        #   style: black
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: fonts/Lato-Thin.ttf
+          weight: 100
+        # - asset: fonts/Lato-Light
+        #   style
+        - asset: fonts/Lato-Light.ttf
+          weight: 300
+        - asset: fonts/Lato-Regular.ttf
+  
+  assets:
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
