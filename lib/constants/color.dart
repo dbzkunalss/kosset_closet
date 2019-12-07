@@ -1,3 +1,5 @@
 import 'package:flutter/material.dart';
 
-final pinkColor = Color.fromRGBO(236, 155, 167, 1.0); // #EC9BA7
+final pinkColorShadow = Color.fromRGBO(229, 116, 133, 1); // #EC9BA7
+final pinkColor = Color.fromRGBO(0xEF, 0xAB, 0xB5, 1);
+final greyFromThePallet = Colors.grey;
