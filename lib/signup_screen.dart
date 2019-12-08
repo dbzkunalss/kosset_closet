@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/color.dart';
 import 'package:kosset_closet/constants/elements.dart';
+import 'package:kosset_closet/otp_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -157,7 +158,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               elevation: 0.0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OtpScreen()),
+                                );
+                              },
                             ),
                           ),
                         ),
