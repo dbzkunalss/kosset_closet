@@ -97,11 +97,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(25),
                             topRight: Radius.circular(25))),
-                    child: Column(
+                    child: ListView(
                       children: <Widget>[
-                        Image(
-                          image: AssetImage("assets/Woman.png"),
-                          width: 80,
+                        Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage("assets/Woman.png"),
+                              width: 80,
+                            ),
+                          ],
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 40, bottom: 20),

@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),
-                child: Column(
+                child: ListView(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 50, bottom: 30),

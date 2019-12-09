@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  table_calendar: ^2.2.1
   pin_view: ^1.0.1
   
   flutter:
