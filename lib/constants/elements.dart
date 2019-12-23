@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 
 import 'color.dart';
 
-TextField textfield(String hint, Icon icon,
-    {bool obt: false, TextInputType keyboard: TextInputType.emailAddress}) {
-  return TextField(
+TextFormField textfield(String hint, Icon icon,
+    {bool obt: false, TextInputType keyboard: TextInputType.emailAddress, Function validator, TextEditingController cnt, Widget suffix }){
+  return TextFormField(
       obscureText: obt,
       keyboardType: keyboard,
       style: TextStyle(),
@@ -17,7 +17,8 @@ TextField textfield(String hint, Icon icon,
         hintText: hint,
         hintStyle: TextStyle(fontWeight: FontWeight.w800, color: Colors.grey),
         prefixIcon: icon,
-      ));
+        suffix: suffix,
+      ),validator: validator,controller: cnt,);
 }
 
 // Padding otpBoxThing(TextEditingController textController, bool enabler) {
