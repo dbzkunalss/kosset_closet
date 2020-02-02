@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontSize: MediaQuery.of(context).size.width * 0.1),
                   children: [
                     TextSpan(
-                        text: "Kosset™ ",
+                        text: "KOSSET™ ",
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.w300)),
                     TextSpan(

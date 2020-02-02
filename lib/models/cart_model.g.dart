@@ -31,4 +31,8 @@ class ItemAdapter extends TypeAdapter<Item> {
       ..writeByte(3)
       ..write(obj.numbers);
   }
+
+  @override
+  // TODO: implement typeId
+  int get typeId => throw UnimplementedError();
 }

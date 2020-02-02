@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:kosset_closet/constants/colors.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,10 +19,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: kossetLightPink,
+        primarySwatch: Colors.pink,
         textTheme: GoogleFonts.latoTextTheme(
           Theme.of(context).textTheme,
         ),
-        primarySwatch: Colors.blue,
+    
       ),
       home: SplashScreen(),
     );
