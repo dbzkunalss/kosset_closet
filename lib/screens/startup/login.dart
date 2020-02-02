@@ -13,13 +13,13 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     loginText = Text(
-                        "LOGIN",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w800),
-                      );
+      "LOGIN",
+      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+    );
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +28,7 @@ class _LoginState extends State<Login> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
+              
               backgroundColor: kossetLightPink,
               expandedHeight: MediaQuery.of(context).size.height * 0.3,
               floating: false,
@@ -118,11 +119,71 @@ class _LoginState extends State<Login> {
                       onPressed: () {
                         setState(() {
                           loginText = CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
                           );
                         });
                         print("ok");
                       },
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    OutlinedButtonDefault(
+                      buttonColor: Color(0xFFC8BDE4),
+                      child: Text("SIGN UP",
+                          style: TextStyle(
+                              color: Color(0xFFC8BDE4),
+                              fontWeight: FontWeight.w800,
+                              fontSize: 15)),
+                      onPressed: () {},
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    OutlinedButtonDefault(
+                      buttonColor: Color(0xFFC8BDE4),
+                      child: Center(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              "assets/icons8-google-400.png",
+                              width: 30,
+                            ),
+                            Text("  SIGN IN WITH GOOGLE",
+                                style: TextStyle(
+                                    color: Color(0xFFC8BDE4),
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 15))
+                          ],
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                      child: FlatButton(
+                          onPressed: () {},
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "SKIP",
+                                style: TextStyle(
+                                    color: Color(0xFFC8BDE4), fontSize: 15),
+                              ),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Color(0xFFC8BDE4),
+                                size: 30,
+                              )
+                            ],
+                          )),
                     )
                   ],
                 ),

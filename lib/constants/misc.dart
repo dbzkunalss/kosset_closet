@@ -29,6 +29,10 @@ class _FlatButtonDefaultState extends State<FlatButtonDefault> {
 
 
 class OutlinedButtonDefault extends StatefulWidget {
+  OutlinedButtonDefault({Key keys, this.onPressed, this.child, this.buttonColor});
+  final Function onPressed;
+  final Widget child;
+  final Color buttonColor;
   @override
   _OutlinedButtonDefaultState createState() => _OutlinedButtonDefaultState();
 }
@@ -37,7 +41,18 @@ class _OutlinedButtonDefaultState extends State<OutlinedButtonDefault> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 64,
+    child: OutlineButton(
+      borderSide: BorderSide(
+        width: 1.5,
+        color: widget.buttonColor
+      ),
       
-    );
+      textColor: widget.buttonColor,
+      color: widget.buttonColor,
+      splashColor: widget.buttonColor,
+      child: widget.child,
+      onPressed: widget.onPressed
+      ));
   }
 }
