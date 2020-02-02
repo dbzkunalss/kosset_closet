@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:kosset_closet/constants/color.dart';
-import 'package:kosset_closet/login_screen.dart';
+import 'package:hive/hive.dart';
+import 'package:kosset_closet/constants/colors.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyApp());
+import 'screens/splash_screen.dart';
 
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
+  runApp(MyApp());
 }
 
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.system,
-      theme: ThemeData(accentColor: pinkColor),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      theme: ThemeData(
+        primaryColor: kossetLightPink,
+        primarySwatch: Colors.pink,
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme,
+        ),
+    
+      ),
+      home: SplashScreen(),
     );
   }
 }

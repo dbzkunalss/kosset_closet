@@ -14,11 +14,25 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  google_fonts: ^0.3.2
+  page_transition: "^1.1.5"
+  font_awesome_flutter: ^8.5.0
+  hive: ^1.3.0
+  hive_flutter: ^0.2.1
+  # For OS-specific directory paths
+  path_provider: ^1.3.0
+  firebase_core: ^0.4.0+9
+  firebase_auth: ^0.14.0+5
+  cloud_firestore: ^0.13.0+1
+  
   flutter:
     sdk: flutter
+
+  
+    
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -27,6 +41,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^0.5.1
+  build_runner:
 
 
 # For information on the generic Dart part of this file, see the
@@ -39,6 +55,23 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+      - family: Lato
+        fonts:
+        # - asset: fonts/Lato-Black.ttf
+        #   style: black
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: fonts/Lato-Thin.ttf
+          weight: 100
+        # - asset: fonts/Lato-Light
+        #   style
+        - asset: fonts/Lato-Light.ttf
+          weight: 300
+        - asset: fonts/Lato-Regular.ttf
+  
+  assets:
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
