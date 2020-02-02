@@ -9,6 +9,17 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  Widget loginText;
+  @override
+  void initState() {
+    loginText = Text(
+                        "LOGIN",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w800),
+                      );
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,20 +103,24 @@ class _LoginState extends State<Login> {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: (){},
-                      child: Text("Forgot your password?", style: TextStyle(color: Color(0xFFBFBFBF)),),
+                      onTap: () {},
+                      child: Text(
+                        "Forgot your password?",
+                        style: TextStyle(color: Color(0xFFBFBFBF)),
+                      ),
                     ),
                     SizedBox(
                       height: 30,
                     ),
                     FlatButtonDefault(
-                      child: Text(
-                        "LOGIN",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w800),
-                      ),
+                      child: loginText,
                       buttonColor: kossetDefaultButton,
                       onPressed: () {
+                        setState(() {
+                          loginText = CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          );
+                        });
                         print("ok");
                       },
                     )

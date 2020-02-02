@@ -19,9 +19,25 @@ class _FlatButtonDefaultState extends State<FlatButtonDefault> {
       ),
       height: 64,
       child: FlatButton(
+      
         onPressed: widget.onPressed,
         child: widget.child,
       ),
+    );
+  }
+}
+
+
+class OutlinedButtonDefault extends StatefulWidget {
+  @override
+  _OutlinedButtonDefaultState createState() => _OutlinedButtonDefaultState();
+}
+
+class _OutlinedButtonDefaultState extends State<OutlinedButtonDefault> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
