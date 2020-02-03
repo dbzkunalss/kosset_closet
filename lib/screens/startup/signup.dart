@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/constants/text_fields.dart';
-import 'package:kosset_closet/screens/startup/signup.dart';
-import 'package:kosset_closet/screens/store/home.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
-  Widget loginText;
+class _SignUpState extends State<SignUp> {
+  Widget signUpText;
   @override
   void initState() {
-    loginText = Text(
-      "LOGIN",
+    signUpText = Text(
+      "SIGN UP",
       style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
     );
     // TODO: implement initState
@@ -82,17 +80,34 @@ class _LoginState extends State<Login> {
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 30, left: 45, right: 45),
+                      padding: const EdgeInsets.only(left: 45, right: 45),
                       child: ListView(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         children: <Widget>[
+                          SizedBox(
+                            height: 100,
+                            child: Image.asset(
+                              "assets/undraw_female_avatar_l3ey 1.png",
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          DefaultTextFields(
+                            "Anurag",
+                            Icon(Icons.person),
+                            bordercolor: Color(0xFFBFBFBF),
+                            obt: false,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
                           DefaultTextFields(
                             "Email",
                             Icon(Icons.email),
                             bordercolor: Color(0xFFBFBFBF),
-                            obt: false,
+                            obt: true,
                           ),
                           SizedBox(
                             height: 30,
@@ -117,11 +132,11 @@ class _LoginState extends State<Login> {
                             height: 30,
                           ),
                           FlatButtonDefault(
-                            child: loginText,
+                            child: signUpText,
                             buttonColor: kossetDefaultButton,
                             onPressed: () {
                               setState(() {
-                                loginText = CircularProgressIndicator(
+                                signUpText = CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                       Colors.white),
                                 );
@@ -132,69 +147,12 @@ class _LoginState extends State<Login> {
                           SizedBox(
                             height: 30,
                           ),
-                          OutlinedButtonDefault(
+                          FlatButtonDefault(
+                            child: Text("LOGIN", style: TextStyle(color: Colors.white),),
                             buttonColor: Color(0xFFC8BDE4),
-                            child: Text("SIGN UP",
-                                style: TextStyle(
-                                    color: Color(0xFFC8BDE4),
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 15)),
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignUp()));
+                              Navigator.pop(context);
                             },
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          OutlinedButtonDefault(
-                            buttonColor: Color(0xFFC8BDE4),
-                            child: Center(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Image.asset(
-                                    "assets/icons8-google-400.png",
-                                    width: 30,
-                                  ),
-                                  Text("  SIGN IN WITH GOOGLE",
-                                      style: TextStyle(
-                                          color: Color(0xFFC8BDE4),
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 15))
-                                ],
-                              ),
-                            ),
-                            onPressed: () {},
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Center(
-                            child: FlatButton(
-                                onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>Home()));
-                                },
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      "SKIP",
-                                      style: TextStyle(
-                                          color: Color(0xFFC8BDE4),
-                                          fontSize: 15),
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Color(0xFFC8BDE4),
-                                      size: 30,
-                                    )
-                                  ],
-                                )),
                           ),
                           SizedBox(
                             height: 30,
