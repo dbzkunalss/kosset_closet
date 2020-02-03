@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kosset_closet/widgets/app_bar_default.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,35 +9,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(width: 40),
-            RichText(
-              text: TextSpan(children: [
-                TextSpan(
-                    text: "KOSSET ",
-                    style: TextStyle(color: Color(0xFFF17791), fontSize: 24)),
-                TextSpan(
-                    text: "CLOSET",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800))
-              ]),
-            ),
-            Image.asset(
-              "assets/Group 18.png",
-              scale: 2,
-            )
-          ],
-        ),
-        centerTitle: true,
-      ),
-    );
+    return Scaffold(appBar: defaultAppBar());
   }
 }
