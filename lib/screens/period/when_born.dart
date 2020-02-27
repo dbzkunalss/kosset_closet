@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/screens/period/number_of_days.dart';
+import 'package:kosset_closet/screens/store/home.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class LastPeriod extends StatefulWidget {
+class BirthDate extends StatefulWidget {
   @override
-  _LastPeriodState createState() => _LastPeriodState();
+  _BirthDateState createState() => _BirthDateState();
 }
 
-class _LastPeriodState extends State<LastPeriod> {
+class _BirthDateState extends State<BirthDate> {
   CalendarController _calendarController;
   @override
   void initState() {
@@ -62,7 +63,7 @@ class _LastPeriodState extends State<LastPeriod> {
                           height: 35,
                           width: 35,
                           child: Text(
-                            "1",
+                            "3",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
@@ -76,12 +77,12 @@ class _LastPeriodState extends State<LastPeriod> {
                             style: TextStyle(color: Colors.black),
                             children: [
                               TextSpan(
-                                  text: "When did you have your\n",
+                                  text: "When were you ",
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w300)),
                               TextSpan(
-                                  text: "last Period?",
+                                  text: "born?",
                                   style: TextStyle(fontSize: 18))
                             ]),
                       )
@@ -144,7 +145,7 @@ class _LastPeriodState extends State<LastPeriod> {
                       ),
                       onTap: (){
                         print("I don't remember");
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => NumberOfDays()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
                       },
                     ),
                   )

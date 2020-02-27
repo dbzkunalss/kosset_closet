@@ -30,6 +30,7 @@ dependencies:
   cloud_firestore: ^0.13.0+1
   # Miscellaneous
   table_calendar: ^2.2.2
+  numberpicker: ^1.1.0
 
   flutter:
     sdk: flutter
