@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/constants/text_fields.dart';
+import 'package:kosset_closet/screens/period/when_period.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -140,6 +141,7 @@ class _SignUpState extends State<SignUp> {
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                       Colors.white),
                                 );
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LastPeriod()));
                               });
                               print("ok");
                             },

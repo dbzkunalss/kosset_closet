@@ -24,10 +24,13 @@ dependencies:
   hive_flutter: ^0.2.1
   # For OS-specific directory paths
   path_provider: ^1.3.0
+  # Firebase
   firebase_core: ^0.4.0+9
   firebase_auth: ^0.14.0+5
   cloud_firestore: ^0.13.0+1
-  
+  # Miscellaneous
+  table_calendar: ^2.2.2
+
   flutter:
     sdk: flutter
 

@@ -176,7 +176,10 @@ class _LoginState extends State<Login> {
                           Center(
                             child: FlatButton(
                                 onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>Home()));
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home()));
                                 },
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
