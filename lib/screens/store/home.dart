@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/screens/cart/cart_item.dart';
+import 'package:kosset_closet/screens/store/address_card.dart';
+import 'package:kosset_closet/screens/store/summary.dart';
 import 'package:kosset_closet/widgets/app_bar_default.dart';
 import 'package:kosset_closet/widgets/box_with_price.dart';
 import 'package:kosset_closet/widgets/item_card.dart';
@@ -61,10 +63,26 @@ class _HomeState extends State<Home> {
               "Panty Liners for light spotting and discharge": "2"
             },
             numberOfBoxes: "2",
+            onTap: () {
+              print("works");
+            },
           ),
+          Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  AddressCard(
+                    name: "Jane Doe",
+                    address:
+                        "S-101, Nillenium Park, Civil Line Los Santos California, USA, 400005",
+                  )
+                ],
+              )),
           SizedBox(
             height: 300,
-          )
+          ),
+          Summary()
         ],
       ),
     );
