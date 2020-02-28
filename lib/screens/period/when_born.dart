@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
+import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/screens/period/number_of_days.dart';
 import 'package:kosset_closet/screens/store/home.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -22,9 +23,25 @@ class _BirthDateState extends State<BirthDate> {
     _calendarController.dispose();
     super.dispose();
   }
+  DateTime _now = DateTime.now();
+  Future<Null> selectDate(BuildContext context) async{
+    final DateTime picked = await showDatePicker(
+      context: context, 
+      initialDate: _now, 
+      firstDate: DateTime(1960), 
+      lastDate: DateTime(2100)
+      );
+      if (picked != null && picked != _now){
+        setState(() {
+          _now = picked;
+          print(_now.toString());
+        });
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
         body: Stack(
       children: <Widget>[
@@ -89,7 +106,7 @@ class _BirthDateState extends State<BirthDate> {
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: MediaQuery.of(context).size.height * 0.3,
                   ),
                   Center(
                     child: Padding(
@@ -99,29 +116,11 @@ class _BirthDateState extends State<BirthDate> {
                               color: Color.fromARGB(20, 0, 0, 0),
                               border: Border.all(color: kossetDarkPink),
                               borderRadius: BorderRadius.circular(15)),
-                          child: TableCalendar(
-                            availableGestures:
-                                AvailableGestures.horizontalSwipe,
-                            builders: CalendarBuilders(
-                                holidayDayBuilder: (context, day, list) {
-                              return Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: kossetPurpleFromThePallet,
-                                      borderRadius: BorderRadius.circular(50)),
-                                  alignment: Alignment.center,
-                                  child: Text(day.day.toString()),
-                                ),
-                              );
-                            }),
-                            calendarStyle: CalendarStyle(
-                                selectedColor: kossetLightPink,
-                                holidayStyle: TextStyle(
-                                  backgroundColor: kossetPurpleFromThePallet,
-                                ),
-                                weekendStyle: TextStyle(color: Colors.red)),
-                            calendarController: _calendarController,
+                          child: FlatButtonDefault(
+                            child: Text("CLICK TO ENTER DATE OF BIRTH"),
+                            onPressed: (){
+                              selectDate(context);
+                            },
                           ),
                         )),
                   ),

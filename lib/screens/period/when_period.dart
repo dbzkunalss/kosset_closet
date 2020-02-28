@@ -95,7 +95,8 @@ class _LastPeriodState extends State<LastPeriod> {
                         padding: const EdgeInsets.only(top: 20, bottom: 20),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(20, 0, 0, 0),
+                              // color: Color.fromARGB(20, 0, 0, 0),
+                              color: Colors.white,
                               border: Border.all(color: kossetDarkPink),
                               borderRadius: BorderRadius.circular(15)),
                           child: TableCalendar(
