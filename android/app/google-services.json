@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1043139065603",
+    "firebase_url": "https://kosset-69420.firebaseio.com",
+    "project_id": "kosset-69420",
+    "storage_bucket": "kosset-69420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043139065603:android:0fd0bff0cfb753c28e5b36",
+        "android_client_info": {
+          "package_name": "com.example.kosset_closet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043139065603-4n5djkt86rsc4t8rec6i60sa2bn20sh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kosset_closet",
+            "certificate_hash": "f9bac4f60f5d700fdf1c62e2f969d8f7b48e29c5"
+          }
+        },
+        {
+          "client_id": "1043139065603-o1jrgppp5jj94lb7ieg1tvvqulgg65si.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo5WQ_Trjm2GPGgnEMQSVpGjyIFittInQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043139065603-o1jrgppp5jj94lb7ieg1tvvqulgg65si.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
