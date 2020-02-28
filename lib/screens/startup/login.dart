@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/constants/text_fields.dart';
+import 'package:kosset_closet/screens/startup/signup.dart';
+import 'package:kosset_closet/screens/store/home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -81,7 +83,7 @@ class _LoginState extends State<Login> {
                             topRight: Radius.circular(20))),
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(top: 30, left: 30, right: 30),
+                          const EdgeInsets.only(top: 30, left: 45, right: 45),
                       child: ListView(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
@@ -137,7 +139,12 @@ class _LoginState extends State<Login> {
                                     color: Color(0xFFC8BDE4),
                                     fontWeight: FontWeight.w800,
                                     fontSize: 15)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUp()));
+                            },
                           ),
                           SizedBox(
                             height: 30,
@@ -168,7 +175,12 @@ class _LoginState extends State<Login> {
                           ),
                           Center(
                             child: FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home()));
+                                },
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
