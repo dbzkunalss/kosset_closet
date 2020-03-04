@@ -36,7 +36,7 @@ class _ItemCardState extends State<ItemCard> {
         height: MediaQuery.of(context).size.height * 0.23,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
-          child: ListView(children: <Widget>[
+          child: Column(children: <Widget>[
             Column(
               children: <Widget>[
                 Row(

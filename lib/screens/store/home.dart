@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
-import 'package:kosset_closet/screens/cart/cart_item.dart';
 import 'package:kosset_closet/widgets/app_bar_default.dart';
-import 'package:kosset_closet/widgets/box_with_price.dart';
-import 'package:kosset_closet/widgets/item_card.dart';
+import 'home_screens/cart.dart';
+import 'home_screens/profile.dart';
+import 'home_screens/subscription.dart';
+import 'home_screens/tracker.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,62 +12,82 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _currentIndex;
+
+  List<Widget> list = [Tracker(), Subscription(), Cart(), Profile()];
+
+  @override
+  void initState() {
+    _currentIndex = 0;
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: defaultAppBar(),
-      body: ListView(
-        children: <Widget>[
-          ItemCard(
-            cardColor: kossetDarkPink,
-            imagePath: "assets/kossetBox.png",
-            shadowColor: kossetLightPink,
-            description: "15 Sanitary Pads with Individual Disposal Packets",
-            productName: "KOSSET BOX",
-          ),
-          ItemCard(
-            cardColor: kossetPurpleFromThePallet,
-            imagePath: "assets/kossetBox.png",
-            shadowColor: Colors.grey,
-            description: "3 Sanitary Pads with Individual Disposal Packets",
-            productName: "TRIAL BOX",
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.16,
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                BoxWithPrice(
-                  name: "1 Box",
-                  price: "₹ 250",
+        appBar: defaultAppBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: kossetDarkPink,
+          unselectedItemColor: Colors.grey,
+          elevation: 20.0,
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/tabIcons/calendar(1) 1.png",
+                  scale: 2,
                 ),
-                BoxWithPrice(
-                  name: "2 Box",
-                  price: "₹ 400",
+                activeIcon: Image.asset(
+                  "assets/tabIcons/calendar(1) 1.png",
+                  scale: 2,
+                  color: kossetDarkPink,
                 ),
-                BoxWithPrice(
-                  name: "6 Box",
-                  price: "₹ 1000",
+                title: Text(" ")),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/tabIcons/products.png",
+                  scale: 2,
                 ),
-              ],
-            ),
-          ),
-          CartItem(
-            name: "KOSSET BOX",
-            addon: "+ FREE HERBAL PERIOD CRAMPS RELIEF ROLL ON",
-            items: {
-              "Heavy Flow and Overnight Pads (L)": "6",
-              "Light and Medium Flow Pads (M)": "7",
-              "Panty Liners for light spotting and discharge": "2"
-            },
-            numberOfBoxes: "2",
-          ),
-          SizedBox(
-            height: 300,
-          )
-        ],
-      ),
-    );
+                activeIcon: Image.asset(
+                  "assets/tabIcons/products.png",
+                  scale: 2,
+                  color: kossetDarkPink,
+                ),
+                title: Text(" ")),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/tabIcons/renew 1.png",
+                  scale: 2,
+                ),
+                activeIcon: Image.asset(
+                  "assets/tabIcons/renew 1.png",
+                  scale: 2,
+                  color: kossetDarkPink,
+                ),
+                title: Text(" ")),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/tabIcons/profile.png",
+                  scale: 2,
+                ),
+                activeIcon: Image.asset(
+                  "assets/tabIcons/profile.png",
+                  scale: 2,
+                  color: kossetDarkPink,
+                ),
+                title: Text(" ")),
+          ],
+        ),
+        body: list.elementAt(_currentIndex));
   }
 }
+
+// [Tracker(), Subscription(), Cart(), Profile()]
