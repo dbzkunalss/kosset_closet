@@ -20,7 +20,7 @@ class _BoxWithPriceState extends State<BoxWithPrice> {
         width: MediaQuery.of(context).size.width * 0.5,
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
                   color: Colors.grey,

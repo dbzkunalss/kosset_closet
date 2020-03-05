@@ -164,7 +164,7 @@ class _ProductState extends State<Product> {
               height: MediaQuery.of(context).size.height * 0.08,
               decoration: BoxDecoration(
                   color: kossetDarkPink,
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(12)),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30),
@@ -254,7 +254,7 @@ class _ProductState extends State<Product> {
                       borderSide: BorderSide(color: kossetPurpleFromThePallet),
                       onPressed: () {},
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(12)),
                       child: Text(
                         "Add to Cart",
                         style: TextStyle(
@@ -270,7 +270,7 @@ class _ProductState extends State<Product> {
                   child: FlatButton(
                     onPressed: () {},
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Text("Buy Now",
                         style: TextStyle(
                           color: Colors.white,
@@ -295,7 +295,7 @@ class _ProductState extends State<Product> {
                           color: kossetPurpleFromThePallet,
                           onPressed: () {},
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(12)),
                           child: Center(
                             child: Text("Subscribe",
                                 style: TextStyle(

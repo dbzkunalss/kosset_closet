@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex;
 
-  List<Widget> list = [Tracker(), Products(), Subscription(), Profile()];
+  List<Widget> list = [Tracker(), Products(), OnSubScribed(), Profile()];
 
   @override
   void initState() {

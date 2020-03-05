@@ -85,6 +85,11 @@ class _DemographicState extends State<Demographic> {
 }
 
 class DeliveryAddress extends StatefulWidget {
+  DeliveryAddress({
+    this.textColor, this.address
+  });
+  final Color textColor;
+  final String address;
   @override
   _DeliveryAddressState createState() => _DeliveryAddressState();
 }
@@ -99,12 +104,10 @@ class _DeliveryAddressState extends State<DeliveryAddress> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              height: 20,
-            ),
+            
             Text(
               "Delivery Address",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: widget.textColor),
             ),
             SizedBox(
               height: 10,
@@ -112,7 +115,7 @@ class _DeliveryAddressState extends State<DeliveryAddress> {
             Container(
                 width: MediaQuery.of(context).size.width * 0.6,
                 child: Text(
-                    "S-101, Nillenium Park, Civil Line, Los Santos California, USA, 400005"))
+                    widget.address, style: TextStyle(color: widget.textColor),))
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width * 0.1)

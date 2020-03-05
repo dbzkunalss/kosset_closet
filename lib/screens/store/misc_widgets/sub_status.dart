@@ -7,7 +7,7 @@ Widget subscriptionStatus(BuildContext context,
   return Container(
     height: MediaQuery.of(context).size.height * 0.08,
     decoration:
-        BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
+        BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
     child: Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
