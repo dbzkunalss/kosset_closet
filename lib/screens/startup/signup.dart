@@ -96,10 +96,11 @@ class _SignUpState extends State<SignUp> {
                             height: 30,
                           ),
                           DefaultTextFields(
-                            "Anurag",
+                            "Username",
                             Icon(Icons.person),
                             bordercolor: Color(0xFFBFBFBF),
                             obt: false,
+                            validator: (val) => val.isEmpty ? "Enter Username" : null,
                           ),
                           SizedBox(
                             height: 30,
