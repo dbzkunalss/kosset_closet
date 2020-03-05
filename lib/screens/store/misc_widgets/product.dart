@@ -37,8 +37,8 @@ class _CustomizerButtonState extends State<CustomizerButton> {
             )),
         widget.isStatic == true
             ? Container(
-              height: 60,
-            )
+                height: 60,
+              )
             : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
@@ -105,14 +105,20 @@ class _ProductState extends State<Product> {
   void initState() {
     // TODO: implement initState
     blueBox = [
-      Text(
-        widget.head,
-        style: TextStyle(
-            color: Colors.white, fontSize: 18, fontWeight: FontWeight.w800),
-      ),
-      widget.isStatic == false ? Divider(
-        color: Colors.white,
-      ): Container(),
+      widget.isStatic == false
+          ? Text(
+              widget.head,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800),
+            )
+          : Container(),
+      widget.isStatic == false
+          ? Divider(
+              color: Colors.white,
+            )
+          : Container(),
     ];
     appendList();
     super.initState();
@@ -174,7 +180,7 @@ class _ProductState extends State<Product> {
           SizedBox(
             height: 20,
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
             child: Text(
               widget.shortDesc,
@@ -182,27 +188,31 @@ class _ProductState extends State<Product> {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          widget.isStatic == false ? Padding(
-            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Text(
-              widget.additional,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                  color: kossetDarkPink,
-                  fontSize: 14,
-                  fontStyle: FontStyle.italic),
-            ),
-          ): Container(),
+          widget.isStatic == false
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Text(
+                    widget.additional,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: kossetDarkPink,
+                        fontSize: 14,
+                        fontStyle: FontStyle.italic),
+                  ),
+                )
+              : Container(),
           SizedBox(
             height: 20,
           ),
-          widget.isStatic == false ? Padding(
-            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Text(
-              widget.longDesc,
-              style: TextStyle(color: Colors.grey[600], fontSize: 14),
-            ),
-          ): Container(),
+          widget.isStatic == false
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Text(
+                    widget.longDesc,
+                    style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                  ),
+                )
+              : Container(),
           SizedBox(
             height: 20,
           ),
