@@ -27,7 +27,7 @@ class UserAdapter extends TypeAdapter<User> {
       phone: fields[4] as String,
       skip: fields[1] as bool,
       last_date: fields[6] as DateTime,
-      uid: fields[10] as int,
+      uid: fields[10] as String,
     );
   }
 

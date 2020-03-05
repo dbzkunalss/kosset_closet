@@ -36,7 +36,7 @@ class User {
   int paymentMethod;
 
   @HiveField(10)
-  int uid;
+  String uid;
 
   User({this.cycle, this.days,this.email,this.isLoggedin, this.name, this.password, this.paymentMethod, this.phone, this.skip, this.last_date, this.uid});
 }
