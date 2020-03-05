@@ -91,7 +91,8 @@ class _SubscriptionState extends State<Subscription> {
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: kossetPurpleFromThePallet, width: 3)),
+                      border: Border.all(
+                          color: kossetPurpleFromThePallet, width: 3)),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       isExpanded: true,
@@ -135,7 +136,8 @@ class _SubscriptionState extends State<Subscription> {
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: kossetPurpleFromThePallet, width: 3)),
+                      border: Border.all(
+                          color: kossetPurpleFromThePallet, width: 3)),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       isExpanded: true,
@@ -185,6 +187,9 @@ class _SubscriptionState extends State<Subscription> {
                             fontSize: 16,
                           )),
                     ))),
+          ),
+          SizedBox(
+            height: 30,
           )
         ],
       ),
