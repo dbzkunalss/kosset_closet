@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/widgets/app_bar_default.dart';
-import 'home_screens/cart.dart';
+import 'home_screens/products.dart';
 import 'home_screens/profile.dart';
 import 'home_screens/subscription.dart';
 import 'home_screens/tracker.dart';
@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex;
 
-  List<Widget> list = [Tracker(), Subscription(), Cart(), Profile()];
+  List<Widget> list = [Tracker(), Products(), Subscription(), Profile()];
 
   @override
   void initState() {
@@ -27,6 +27,18 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: defaultAppBar(),
+        floatingActionButton: _currentIndex == 1
+            ? SizedBox(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.height * 0.07,
+
+                child: FloatingActionButton(
+                  onPressed: null,
+                  child: Image.asset("assets/shoppingCart.png"),
+                  backgroundColor: kossetPurpleFromThePallet,
+                ),
+              )
+            : null,
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: kossetDarkPink,
           unselectedItemColor: Colors.grey,
