@@ -23,6 +23,10 @@ class _TrackerState extends State<Tracker> {
     return Container(
       child: ListView(
         children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height * 0.05,
+            child: Center(child: Text("Period Tracker", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),)),
+          ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
