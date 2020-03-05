@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:kosset_closet/api/firestoreService.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
-import 'package:kosset_closet/screens/period/number_of_days.dart';
 import 'package:kosset_closet/screens/store/home.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -167,7 +167,10 @@ class _BirthDateState extends State<BirthDate> {
               onPressed: () async {
                 final Box<dynamic> box = await Hive.openBox("user");
                 box.put("birth_date", _calendarController.selectedDay);
-                print(_calendarController.selectedDay);
+                final Box<dynamic> settingBox = await Hive.openBox("settings");
+                settingBox.put("isLoggedIn", true);
+
+                await FirestoreService(uid: box.get('uid')).createUser(box);
                 Navigator.push(
                     context,
                     MaterialPageRoute(

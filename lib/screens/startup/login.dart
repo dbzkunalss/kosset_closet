@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:kosset_closet/api/auth.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
-import 'package:kosset_closet/constants/text_fields.dart';
-import 'package:kosset_closet/screens/period/calendar.dart';
 import 'package:kosset_closet/screens/startup/signup.dart';
 import 'package:kosset_closet/screens/store/home.dart';
 
@@ -96,7 +95,7 @@ class _LoginState extends State<Login> {
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             children: <Widget>[
-                               TextFormField(
+                              TextFormField(
                                 validator: (value) =>
                                     !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                             .hasMatch(email)
@@ -113,7 +112,7 @@ class _LoginState extends State<Login> {
                               SizedBox(
                                 height: 30,
                               ),
-                             TextFormField(
+                              TextFormField(
                                 validator: (val) =>
                                     val.isEmpty ? "Enter password" : null,
                                 onChanged: (val) {
@@ -150,11 +149,15 @@ class _LoginState extends State<Login> {
                                                 Colors.white),
                                       );
                                     });
-                                    dynamic result = await _auth.signInUser(email: email, password: password);
-                                    print("sfsdfs" + result.toString());
+                                    dynamic result = await _auth.signInUser(
+                                        email: email, password: password);
+                                    final Box<dynamic> settingBox =
+                                        await Hive.openBox("settings");
+                                    settingBox.put("isLoggedIn", true);
+
                                     if (result != null) {
                                       Navigator.pushReplacement(
-                                          context, 
+                                          context,
                                           MaterialPageRoute(
                                               builder: (_) => Home()));
                                     }
@@ -208,7 +211,11 @@ class _LoginState extends State<Login> {
                               ),
                               Center(
                                 child: FlatButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      final Box<dynamic> settingBox =
+                                          await Hive.openBox("settings");
+                                      settingBox.put("hasSkipped", true);
+
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kosset_closet/api/auth.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
-import 'package:kosset_closet/constants/text_fields.dart';
 import 'package:kosset_closet/screens/period/when_period.dart';
 import 'package:hive/hive.dart';
 
@@ -173,17 +172,18 @@ class _SignUpState extends State<SignUp> {
                                                 Colors.white),
                                       );
                                     });
-                                    // dynamic result = await _auth.createUser(email: email, password: password);
-                                    // if (result != null) {
-                                      // final Box<dynamic> box = await Hive.openBox("user");
-                                      // box.put("email", email);
-                                      // box.put("password", password);
-                                      // box.put("uid", result.uid);
+                                    dynamic result = await _auth.createUser(email: email, password: password);
+                                    if (result != null) {
+                                      final Box<dynamic> box = await Hive.openBox("user");
+                                      box.put("email", email);
+                                      box.put("name", username);
+                                      box.put("password", password);
+                                      box.put("uid", result.uid);
                                       Navigator.pushReplacement(
                                           context, 
                                           MaterialPageRoute(
                                               builder: (_) => LastPeriod()));
-                                    // }
+                                    }
                                   }
                                 },
                               ),

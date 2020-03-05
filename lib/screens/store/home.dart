@@ -50,6 +50,8 @@ class _HomeState extends State<Home> {
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (index) async{
+                          //  final Box<dynamic> box = await Hive.openBox("user");
+                // print(box.get("birth_date"));
             setState(() {
               _currentIndex = index;
             });
