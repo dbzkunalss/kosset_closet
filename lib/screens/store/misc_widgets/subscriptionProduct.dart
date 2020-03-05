@@ -42,16 +42,19 @@ class _CustomizerButtonState extends State<CustomizerButton> {
             : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          value -= 1;
-                        });
-                        print(value);
-                      },
-                      child: Icon(
-                        Icons.remove,
-                      )),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            value -= 1;
+                          });
+                          print(value);
+                        },
+                        child: Icon(
+                          Icons.remove,
+                        )),
+                  ),
                   Container(
                       height: 30,
                       width: 30,
@@ -64,15 +67,18 @@ class _CustomizerButtonState extends State<CustomizerButton> {
                           style: TextStyle(fontSize: 18),
                         ),
                       )),
-                  FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          value += 1;
-                        });
-                      },
-                      child: Icon(
-                        Icons.add,
-                      ))
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            value += 1;
+                          });
+                        },
+                        child: Icon(
+                          Icons.add,
+                        )),
+                  )
                 ],
               )
       ],
@@ -234,7 +240,6 @@ class _SubscriptionProductState extends State<SubscriptionProduct> {
           SizedBox(
             height: 20,
           ),
-          
         ],
       ),
     );
