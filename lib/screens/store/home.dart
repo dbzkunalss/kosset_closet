@@ -5,6 +5,7 @@ import 'home_screens/products.dart';
 import 'home_screens/profile.dart';
 import 'home_screens/subscription.dart';
 import 'home_screens/tracker.dart';
+import 'package:hive/hive.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,14 +18,16 @@ class _HomeState extends State<Home> {
   List<Widget> list = [Tracker(), Products(), Subscription(), Profile()];
 
   @override
-  void initState() {
+  void initState(){
     _currentIndex = 0;
     // TODO: implement initState
     super.initState();
+ 
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         appBar: defaultAppBar(),
         floatingActionButton: _currentIndex == 1
@@ -46,7 +49,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
-          onTap: (index) {
+          onTap: (index) async{
             setState(() {
               _currentIndex = index;
             });

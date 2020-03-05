@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:kosset_closet/constants/colors.dart';
 import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/screens/period/number_of_days.dart';
@@ -23,25 +24,24 @@ class _BirthDateState extends State<BirthDate> {
     _calendarController.dispose();
     super.dispose();
   }
+
   DateTime _now = DateTime.now();
-  Future<Null> selectDate(BuildContext context) async{
+  Future<Null> selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
-      context: context, 
-      initialDate: _now, 
-      firstDate: DateTime(1960), 
-      lastDate: DateTime(2100)
-      );
-      if (picked != null && picked != _now){
-        setState(() {
-          _now = picked;
-          print(_now.toString());
-        });
-      }
+        context: context,
+        initialDate: _now,
+        firstDate: DateTime(1960),
+        lastDate: DateTime(2100));
+    if (picked != null && picked != _now) {
+      setState(() {
+        _now = picked;
+        print(_now.toString());
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
         body: Stack(
       children: <Widget>[
@@ -99,8 +99,7 @@ class _BirthDateState extends State<BirthDate> {
                                       fontSize: 18,
                                       fontWeight: FontWeight.w300)),
                               TextSpan(
-                                  text: "born?",
-                                  style: TextStyle(fontSize: 18))
+                                  text: "born?", style: TextStyle(fontSize: 18))
                             ]),
                       )
                     ],
@@ -110,19 +109,20 @@ class _BirthDateState extends State<BirthDate> {
                   ),
                   Center(
                     child: Padding(
-                        padding: const EdgeInsets.only(top: 20, bottom: 20),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(20, 0, 0, 0),
-                              border: Border.all(color: kossetDarkPink),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: FlatButtonDefault(
-                            child: Text("CLICK TO ENTER DATE OF BIRTH"),
-                            onPressed: (){
-                              selectDate(context);
-                            },
-                          ),
-                        )),
+                      padding: const EdgeInsets.only(top: 20, bottom: 20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(20, 0, 0, 0),
+                            border: Border.all(color: kossetDarkPink),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: FlatButtonDefault(
+                          child: Text("CLICK TO ENTER DATE OF BIRTH"),
+                          onPressed: () {
+                            selectDate(context);
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                   Center(
                     child: GestureDetector(
@@ -142,9 +142,10 @@ class _BirthDateState extends State<BirthDate> {
                           Text("I don't remember")
                         ],
                       ),
-                      onTap: (){
+                      onTap: () {
                         print("I don't remember");
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (_) => Home()));
                       },
                     ),
                   )
@@ -152,7 +153,29 @@ class _BirthDateState extends State<BirthDate> {
               ),
             ),
           ),
-        )
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: FlatButtonDefault(
+              child: Text(
+                "NEXT",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+              ),
+              buttonColor: kossetDefaultButton,
+              onPressed: () async {
+                final Box<dynamic> box = await Hive.openBox("user");
+                box.put("birth_date", _calendarController.selectedDay);
+                print(_calendarController.selectedDay);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => Home()));
+              },
+            ),
+          ),
+        ),
       ],
     ));
   }
