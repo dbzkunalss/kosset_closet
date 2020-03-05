@@ -9,9 +9,7 @@ class AuthService with ChangeNotifier {
   User kossetuser = User();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  ///
-  /// return the Future with firebase user object FirebaseUser if one exists
-  ///
+
   Future<FirebaseUser> getUser() {
     return _auth.currentUser();
   }
@@ -37,7 +35,6 @@ class AuthService with ChangeNotifier {
     try {
       var result = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      // since something changed, let's notify the listeners...
       notifyListeners();
       return result.user;
     }  catch (e) {
