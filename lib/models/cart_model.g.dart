@@ -8,6 +8,9 @@ part of 'cart_model.dart';
 
 class ItemAdapter extends TypeAdapter<Item> {
   @override
+  final typeId = 0;
+
+  @override
   Item read(BinaryReader reader) {
     var numOfFields = reader.readByte();
     var fields = <int, dynamic>{
@@ -31,8 +34,4 @@ class ItemAdapter extends TypeAdapter<Item> {
       ..writeByte(3)
       ..write(obj.numbers);
   }
-
-  @override
-  // TODO: implement typeId
-  int get typeId => throw UnimplementedError();
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:kosset_closet/constants/colors.dart';
+import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/screens/period/when_born.dart';
 import 'package:numberpicker/numberpicker.dart';
 
@@ -20,12 +22,18 @@ class _NumberOfDaysState extends State<NumberOfDays> {
           Positioned(
             top: -1,
             left: -1,
-            child: Image.asset("assets/e.png", scale: 2,),
+            child: Image.asset(
+              "assets/e.png",
+              scale: 2,
+            ),
           ),
           Positioned(
             bottom: -1,
             right: -1,
-            child: Image.asset("assets/Ellipse3.png", scale: 2,),
+            child: Image.asset(
+              "assets/Ellipse3.png",
+              scale: 2,
+            ),
           ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.05,
@@ -127,7 +135,7 @@ class _NumberOfDaysState extends State<NumberOfDays> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
-                 Center(
+                  Center(
                     child: GestureDetector(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -145,12 +153,34 @@ class _NumberOfDaysState extends State<NumberOfDays> {
                           Text("I don't remember")
                         ],
                       ),
-                      onTap: (){
+                      onTap: () {
                         print("I don't remember");
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => BirthDate()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => BirthDate()));
                       },
                     ),
-                  )
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: FlatButtonDefault(
+                        child: Text(
+                          "NEXT",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w800),
+                        ),
+                        buttonColor: kossetDefaultButton,
+                        onPressed: () async {
+                          final Box<dynamic> box = await Hive.openBox("user");
+                          box.put("days", _currentIntValue);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => BirthDate()));
+                        },
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

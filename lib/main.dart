@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:kosset_closet/constants/colors.dart';
+import 'package:kosset_closet/models/cart_model.dart';
+import 'package:kosset_closet/models/user_model.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +13,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
+  Hive.registerAdapter(ItemAdapter());
+  Hive.registerAdapter(UserAdapter());
+  
+
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(new MyApp());

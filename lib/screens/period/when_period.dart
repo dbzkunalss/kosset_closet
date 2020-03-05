@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:kosset_closet/constants/colors.dart';
+import 'package:kosset_closet/constants/misc.dart';
 import 'package:kosset_closet/screens/period/number_of_days.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -143,9 +145,27 @@ class _LastPeriodState extends State<LastPeriod> {
                           Text("I don't remember")
                         ],
                       ),
-                      onTap: (){
+                      onTap: () {
                         print("I don't remember");
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => NumberOfDays()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => NumberOfDays()));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: FlatButtonDefault(
+                      child: Text(
+                        "NEXT",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w800),
+                      ),
+                      buttonColor: kossetDefaultButton,
+                      onPressed: () async {
+                        final Box<dynamic> box = await Hive.openBox("user");
+                        box.put("last_date", _calendarController.selectedDay);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => NumberOfDays()));
                       },
                     ),
                   )
