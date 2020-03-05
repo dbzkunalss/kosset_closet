@@ -11,7 +11,7 @@ Widget expectedPeriod(DateTime start, DateTime end, BuildContext context,
   return Container(
     height: MediaQuery.of(context).size.height * 0.2,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(12),
       color: color == null ? kossetDarkPink : color,
     ),
     child: Center(
@@ -38,7 +38,7 @@ Widget expectedPeriod(DateTime start, DateTime end, BuildContext context,
               width: MediaQuery.of(context).size.width * 0.25,
               height: MediaQuery.of(context).size.width * 0.2,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
               child: Center(
                 child: RichText(
                     textAlign: TextAlign.center,
@@ -80,7 +80,7 @@ Widget expectedFertile(DateTime start, DateTime end, BuildContext context,
   return Container(
     height: MediaQuery.of(context).size.height * 0.15,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(12),
       color: color == null ? Color(0xFFC1D3E0) : color,
     ),
     child: Center(
@@ -100,7 +100,7 @@ Widget expectedFertile(DateTime start, DateTime end, BuildContext context,
               width: MediaQuery.of(context).size.width * 0.75,
               height: MediaQuery.of(context).size.width * 0.1,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
               child: Center(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

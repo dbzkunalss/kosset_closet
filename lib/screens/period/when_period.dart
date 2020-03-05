@@ -135,7 +135,7 @@ class _LastPeriodState extends State<LastPeriod> {
                           Container(
                             decoration: BoxDecoration(
                                 color: Color(0xFFE57485),
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(12)),
                             height: 21,
                             width: 26,
                           ),

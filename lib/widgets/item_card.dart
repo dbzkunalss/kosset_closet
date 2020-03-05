@@ -25,7 +25,7 @@ class _ItemCardState extends State<ItemCard> {
       child: Container(
         decoration: BoxDecoration(
             color: widget.cardColor,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
                   color: widget.shadowColor,

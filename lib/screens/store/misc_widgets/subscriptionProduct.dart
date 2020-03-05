@@ -160,7 +160,7 @@ class _SubscriptionProductState extends State<SubscriptionProduct> {
               height: MediaQuery.of(context).size.height * 0.08,
               decoration: BoxDecoration(
                   color: kossetPurpleFromThePallet,
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(12)),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30),

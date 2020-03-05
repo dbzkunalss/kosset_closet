@@ -9,7 +9,11 @@ class Cart extends StatefulWidget {
    @override
    Widget build(BuildContext context) {
      return Container(
-       color: Colors.red,
+       child: ListView(
+         children: <Widget>[
+           
+         ],
+       ),
      );
    }
  }
